@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Syne", sans-serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-color: var(--accent-color);
+  --color-border-primary: var(--border-primary);
+  
+  --animate-light-streak: light-streak 3.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --bg-primary: #1A1A1A; /* off-black (Luxury Noir) */
+  --bg-secondary: #121212; /* rich black */
+  --bg-card: rgba(38, 38, 38, 0.45); /* warm grey card */
+  --text-primary: #FDFBF7; /* warm off-white (cream) */
+  --text-secondary: #a3a3a3;
+  --accent-color: #D4AF37; /* Champagne Gold */
+  --border-primary: rgba(255, 255, 255, 0.05); /* thin low-opacity border */
+}
+
+.light {
+  --bg-primary: #FAF6F0; /* warm cream */
+  --bg-secondary: #F5EFEB; /* soft cream */
+  --bg-card: rgba(255, 255, 255, 0.65); /* white low-opacity card */
+  --text-primary: #262626; /* dark off-black */
+  --text-secondary: #737373;
+  --accent-color: #C5A880; /* Muted Champagne Gold */
+  --border-primary: rgba(0, 0, 0, 0.06);
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  line-height: 1.75; /* 1.6-1.8 line height for body */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  letter-spacing: 0.03em; /* 3% letter-spacing for headers */
+  line-height: 1.15;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Base Styles and Utilities */
+.font-serif-luxury {
+  font-family: var(--font-serif);
+}
+
+/* Light Streak Animation (reflecting light off body) */
+@keyframes light-streak {
+  0% {
+    transform: translateX(-150%) skewX(-30deg);
+  }
+  30%, 100% {
+    transform: translateX(250%) skewX(-30deg);
+  }
+}
+
+/* Grainy noise pattern overlay */
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNub2lzZUZpbHRlcikiLz48L3N2Zz4=') repeat;
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 9999;
+}
+.light .noise-overlay {
+  opacity: 0.01;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-anim {
+  animation: shimmer 2s infinite;
+}
