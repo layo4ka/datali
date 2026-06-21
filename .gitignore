@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDE & metadata
+.impeccable
+cartinki
+INSTRUCTIONS.txt
+DESIGN.md
+PRODUCT.md
